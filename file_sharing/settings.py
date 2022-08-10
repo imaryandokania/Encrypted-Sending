@@ -87,23 +87,23 @@ WSGI_APPLICATION = 'file_sharing.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dfqtvfsn9eioqf',
-        'USER': 'bcikuokyprfoyc',
-        'PASSWORD': '598a470f5f82a8a3a85d439c2612df3eb052bc5033f7ca32da4c07acfecf195b',
-        'HOST': 'ec2-44-198-211-34.compute-1.amazonaws.com',
-        'PORT':5432
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'dfqtvfsn9eioqf',
+#         'USER': 'bcikuokyprfoyc',
+#         'PASSWORD': '598a470f5f82a8a3a85d439c2612df3eb052bc5033f7ca32da4c07acfecf195b',
+#         'HOST': 'ec2-44-198-211-34.compute-1.amazonaws.com',
+#         'PORT':5432
+#     }
+# }
 
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
