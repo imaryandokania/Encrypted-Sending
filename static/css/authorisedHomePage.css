@@ -7,7 +7,7 @@ html {
 }
   
 body {
-  background-color: #90ccf4;
+  background-color: #a290f4;
   height: 100%;
   width: 100%;
 }
@@ -103,15 +103,15 @@ nav {
   
   .centreTag{
     position: absolute;
-    width: 957px;
-    height: 166px;
-  top: 110px;
-  font-family: Unna;
-  font-style: normal;
+    /* width: 957px;
+    height: 166px; */
+  /* top: 110px; */
+  /* font-family: Unna; */
+  /* font-style: normal;
   font-weight: normal;
-  font-size: 144px;
+  font-size: 100px;
   line-height: 166px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2em; */
   text-align: center;
   color: #000000;
   }

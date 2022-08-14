@@ -80,13 +80,13 @@ nav {
 
 .centreTag{
   position: relative;
-  top: 110px;
-  font-family: Unna;
+  /* top: 110px; */
+  /* font-family: Unna;
   font-style: normal;
   font-weight: normal;
-  font-size: 10rem;
+  font-size: 5rem;
   line-height: 166px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2em; */
   text-align: center;
   color: #000000;
 }

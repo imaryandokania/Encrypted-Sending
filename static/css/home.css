@@ -40,17 +40,17 @@ button{
 }
 .centreTag{
     position: absolute;
-    width: 957px;
-    height: 166px;
-    top: 110px;
+    /* width: 957px;
+    height: 166px; */
+    /* top: 110px;
     font-family: Unna;
     font-style: normal;
     font-weight: normal;
-    font-size: 144px;
+    font-size: 100px;
     line-height: 166px;
     letter-spacing: 0.2em;
     margin-left: 25%;
-    margin-right: 25%;
+    margin-right: 25%; */
     color: #000000;
 }
 .setImg{

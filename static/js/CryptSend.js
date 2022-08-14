@@ -1,11 +1,11 @@
-//Global variables
+
 let clientPermanentPublicKeyXHex = null;
 let clientPermanentPublicKeyYHex = null;
 let clientPermanentPrivateKey = null;
 let recipientPublicKeyXHex = null;
 let recipientPublicKeyYHex = null;
 
-//Useful Functions
+
 function readFile(file) {
   return new Promise((resolve) => {
     let reader = new FileReader();
@@ -196,7 +196,6 @@ function register() {
       });
     console.log("Encryption key created");
 
-    //Is "jwk" better over here?
     let ecdhPublicKey = await window.crypto.subtle.exportKey(
       "jwk",
       ecdhKeyPair.publicKey
@@ -213,7 +212,7 @@ function register() {
       });
     console.log("Key wrapped");
 
-    //Only for Testing ?
+
     var ecdhPublicKeyXBytes = Base64URLStringToUint8Array(ecdhPublicKey.x);
     var ecdhPublicKeyYBytes = Base64URLStringToUint8Array(ecdhPublicKey.y);
     var ecdhPublicKeyXHex = Uint8ArrayToHexString(ecdhPublicKeyXBytes);
@@ -343,7 +342,7 @@ function login() {
         ["deriveKey"]
       )
       .catch((err) => {
-        //Write code here to create an alert in the webpage when the passphrase is wrong.
+    
         alert("Passphrase or SecretKeyFile is wrong.");
         console.log(err);
         return;
@@ -395,7 +394,7 @@ function login() {
 }
 
 function encryptAndSend() {
-  //Depends on the front-end
+
   let recipientUserName = document.getElementById("username");
   let userFile = document.getElementById("userFile");
   let sendBtn = document.getElementById("send");
@@ -429,7 +428,7 @@ function encryptAndSend() {
         recipientPublicKeyYHex = data.public_keyY;
         console.log(recipientPublicKeyXHex);
         console.log(recipientPublicKeyYHex);
-        //return data;
+
         encryption(recipientPublicKeyXHex, recipientPublicKeyYHex);
       });
     });
@@ -550,10 +549,6 @@ function encryptAndSend() {
         console.log(err);
       });
     console.log("File encrypted");
-    //userEncryptedFile = Uint8ArrayToHexString(new Uint8Array(userEncryptedFileArrayBuffer));
-    //let userEncryptedFileHex = Uint8ArrayToHexString(new Uint8Array(userEncryptedFileArrayBuffer));
-    // It might be possible that the following approach won't work. In such a case,
-    // see encryptedsend's implementation involving AppendArrays function.
     console.log(iv);
     console.log(new Uint8Array(userEncryptedFileArrayBuffer));
     console.log(userEncryptedFileArrayBuffer);
@@ -561,13 +556,7 @@ function encryptAndSend() {
       type: "application/octet-stream",
     });
 
-    //var reader = new FileReader(); 
-    //var userEncryptedFile;
-    /*reader.readAsDataURL(payload); 
-    reader.onloadend = async function () { 
-    userEncryptedFile = await reader.result; 
-    //console.log('Base64 String - ', userEncryptedFile);
-    }*/
+   
     let userEncryptedFile = await readFileDataURL(payload);
 
     sendFile(userEncryptedFile);
@@ -610,9 +599,9 @@ function encryptAndSend() {
 
 
 function receiveAndDecrypt() {
-  //Depends on the front-end. Add an eventlistener.
+  
   let downloadBtn = document.getElementById("download");
-  //Fetch the files of the user from the database/server
+
   let userFiles = null;
   fetch(`${window.origin}/get_received_files`)
   .then((res)=>{res.json().then((data)=>{console.log(data.filename);
@@ -775,14 +764,13 @@ function receive_key(userFiles, filename){
       });
     console.log("File decrypted and download initiated");
 
-    //Initiate the download process
     var blob = new Blob([new Uint8Array(userDecryptedFile)], {
       type: "application/octet-stream",
     });
     var url = URL.createObjectURL(blob);
     var link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", filename); //Error here ?
+    link.setAttribute("download", filename); 
     link.click();
   }
 }
